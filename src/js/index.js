@@ -14,7 +14,9 @@ const state = {}
 // search controller
 const controlSearch = async () => {
     // 1) get query from view
-    const query = searchView.getInput();
+    // const query = searchView.getInput();
+
+    const query = 'pizza';
     console.log("query: ", query);
 
     if (query) {
@@ -46,6 +48,12 @@ elements.searchForm.addEventListener('submit', e => {
     controlSearch();
 });
 
+// testing
+window.addEventListener('load', e => {
+    e.preventDefault();
+    controlSearch();
+});
+
 elements.searchRes.addEventListener('click', e => {
     const btn = e.target.closest('.btn-inline');
     if (btn) {
@@ -59,13 +67,15 @@ elements.searchRes.addEventListener('click', e => {
 const controlRecipe = async () => {
     // get id from url
     const id = window.location.hash.replace('#', '');
-    console.log(id);
 
     if (id) {
         // prepare UI for changes
 
         // create new recipe object
         state.recipe = new Recipe(id);
+
+        // testing
+        window.r = state.recipe;
 
         try {
             // get recipe data
