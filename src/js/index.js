@@ -113,6 +113,20 @@ const controlList = () => {
     });
 }
 
+// handle delete and update list item events
+elements.shopping.addEventListener('click', e => {
+    const id = e.target.closest('.shopping__item').dataset.itemid;
+
+    // handle the delete button
+    if (e.target.matches('.shopping__delete, .shopping__delete *')) {
+        // delete from state
+        state.list.deleteItem(id);
+
+        // delete from UI
+        listView.deleteItem(id);
+    }
+});
+
 
 // handling recipe buttons
 elements.recipe.addEventListener('click', e => {
