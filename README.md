@@ -15,15 +15,23 @@ A JavaScript application to search recipes using the Food2Fork API. This uses No
 
 ## Getting Started
 
-1. ```git clone https://github.com/Mumtahin/Forkify.git```
-2. In the parent directory of the project run ```npm install```
+```sh
+git clone https://github.com/Mumtahin/Forkify.git
+```
 
-#### Run webpack in development mode:
+In the parent directory of the project run 
+```sh
+npm install
+```
+
+Next, choose one of the following:
+
+##### Run webpack in development mode
 ```sh
 $ npm run dev
 ```
 
-#### Run webpack in production mode:
+##### Run webpack in production mode
 
 ```sh
 $ npm run build
