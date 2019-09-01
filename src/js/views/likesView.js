@@ -13,7 +13,7 @@ import { limitRecipeTitle } from './searchView';
     elements.likesMenu.style.visibility = numLikes > 0 ? 'visible' : 'hidden';
 };
 
- export const renderMenu = like => {
+ export const renderLike = like => {
     const markup = `
         <li>
             <a class="likes__link" href="#${like.id}">
