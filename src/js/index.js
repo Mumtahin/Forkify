@@ -15,14 +15,11 @@ import { elements, renderLoader, clearLoader } from './views/base';
     - liked recipes
 */
 const state = {}
-window.state = state;
 
 // search controller
 const controlSearch = async () => {
     // 1) get query from view
     const query = searchView.getInput();
-
-    console.log("query: ", query);
 
     if (query) {
         // 2) create new search object, add to state
@@ -38,7 +35,6 @@ const controlSearch = async () => {
             await state.search.getResults();
 
             // 5) render results on UI
-            console.log(state.search.result);
             clearLoader();
             searchView.renderResults(state.search.result);
         } catch (err) {
@@ -77,9 +73,6 @@ const controlRecipe = async () => {
 
         // create new recipe object
         state.recipe = new Recipe(id);
-
-        // testing
-        window.r = state.recipe;
 
         try {
             // get recipe data
@@ -158,7 +151,6 @@ const controlLike = () => {
 
         // Add like to UI list
         likesView.renderLike(newLike);
-        console.log(state.likes);
         // User has liked current recipe
     } else {
         // Remove like from state

@@ -39,7 +39,6 @@ export default class Recipe {
         const newIngredients = this.ingredients.map(el => {
             // 1 - uniform units
             let ingredient = el.toLowerCase();
-
             unitsLong.forEach((unit, i) => {
                 ingredient = ingredient.replace(unit, unitsShort[i]);
             });
@@ -54,15 +53,12 @@ export default class Recipe {
             let objIng;
             if (unitIndex > -1) {
                 // there is a unit
-                // Ex. 4 1/2 cups, arrCount is [4, 1/2] --> "4+1/2" --> 4.5
-                // Ex. 4 cups, arrCount is [4]
-
                 const arrCount = arrIng.slice(0, unitIndex);
                 let count;
                 if (arrCount.length === 1) {
-                    count = arrIng[0].replace('-', '+');
+                    count = eval(arrIng[0].replace('-', '+'));
                 } else {
-                    count = eval(arrIng.slice(0, unitIndex).join('+'));
+                    count = eval(arrCount.join('+'));
                 }
 
                 objIng = {
@@ -85,8 +81,8 @@ export default class Recipe {
                     ingredient
                 }
             }
+            return objIng;
 
-            return objIng
         });
         this.ingredients = newIngredients;
     }
